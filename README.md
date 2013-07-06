@@ -13,7 +13,7 @@ Die Briefvorlage kompilierbar mit XeTex.
 Die Letter Options (Absenderdaten usw.) die im Brief verwendet werden.
 
 ### din5008frame.tex
-Rahmen und Hilfslinien nach Din 5008 von @Stefanqn. Die Datei kann im Brief eingebunden 
+Rahmen und Hilfslinien nach Din 5008 von https://github.com/Stefanqn/Bewerbung.  Die Datei kann im Brief eingebunden 
 werden, um das Layout zu überprüfen.
 
 ### internetmarke.pdf
