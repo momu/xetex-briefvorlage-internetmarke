@@ -1,0 +1,109 @@
+%%
+% (German) XeTex letter template based on the template 
+% from Jan-Philip Gehrcke
+% http://gehrcke.de -- jgehrcke@gmail.com -- November 2009
+% 
+% Source: http://gehrcke.de/2009/12/latex-briefvorlage/
+%%
+
+% DIV and BCOR settings result in smaller/wider side margins
+% see scrguide @
+% http://www.tex.ac.uk/tex-archive/macros/latex/contrib/koma-script/scrguide.pdf
+
+% so ist der brief nicht strikt nach din 5008
+% mit den werten für {geometry} wird er zu einem din 5008 typ b brief (der satzspiegel (ränder)) ändern sich
+% das ist aber für private briefe nciht zwingend vorgeschrieben und sieht laut latexexperten auch
+% typographisch falsch aus
+% 
+
+\documentclass[%
+	%nonsymm,
+ 	fontsize=11pt,	%Schriftgroesse (12pt default)
+ 	paper=a4,	%Papierformat (A4 default)
+ 	%DIV=12,		%Seitenaufteilung (12 default -- siehe scrguide.pdf), hat einfluss auf die ränder
+% 	BCOR=5mm,	%Zusaetzlicher Rand auf der Innenseite zur Bindekorrektur
+	parskip=half*,  %Absatz statt Einzug
+         %draft,        %Draftmodus zum Debugging
+        %moretext,       %DINmtext statt DIN
+        %DINfalse,       %Satzspiegel scrlttr2-Standard, aber nicht strikt DIN5008-konform!
+%         nonsymm,        %historisch :)
+%         nonexthead,     %leerer nexthead auf den Folgeseiten
+	ngerman,        %Briefsprache Deutsch
+% 	english,        %Briefsprache Englisch
+	version=last,
+	fromlogo,
+	]{scrlttr2}
+\LoadLetterOption{letter_options}
+\usepackage{xltxtra}
+
+\usepackage{polyglossia}
+\usepackage{fontspec}
+
+\setmainlanguage[latesthyphen=true,babelshorthands=true]{german}
+\usepackage{adjustbox}
+\usepackage[absolute]{textpos} 
+
+\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont{Linux Libertine O}
+%\setsansfont{Linux Biolinum O}
+\setmainfont{Vollkorn}
+% overall sans serif font
+%\renewcommand{\familydefault}{\sfdefault}
+
+%\enlargethispage{\baselineskip} % alles ein wenig quetschen, damit es auf eine seite passt
+
+% enable to get din5008 outlines
+%\input{din5008frame.tex}
+
+\begin{document}
+
+\setkomavar{fromlogo}{%
+    \setlength{\unitlength}{1mm}
+    \begin{picture}(0,0)
+	\put(42,-17){
+	    \adjincludegraphics[trim=50mm 247mm 122mm 38mm,clip,]{internetmarke.pdf}
+	}
+    \end{picture}
+}
+      
+\setkomavar{subject}{Ihr Schreiben vom ...}
+\setkomavar{date}{\today}
+\setkomavar{place}{Stadt}
+% German address
+\begin{letter}{
+
+Empfänger\\
+Straße 1\\
+12345 Stadt
+}
+
+\opening{Sehr geehrte Damen und Herren,}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. 
+Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. 
+Praesent et diam eget libero egestas mattis sit amet vitae augue. 
+
+Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu 
+vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor 
+nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet.
+ Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at 
+ malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+ In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
+
+
+%\nopagebreak[3]
+\closing{Mit freundlichen Grüßen}
+%\hspace{-2cm} %hochschieben
+%\includegraphics[width=0.3\textwidth]{../unterschrift.jpg}
+%\hspace{2cm} % wieder runter
+
+%\begin{textblock}{5}(1,11.6)      % zweite Zahl in der zweiten Klammer verändert die vertikale Position der Unterschrift 
+%  \includegraphics[width=5.5cm]{../unterschrift.jpg} 
+%\end{textblock} 
+
+\setkomavar*{enclseparator}{Anlage}%
+\encl{Anlage I\\Anlage II}%
+%\cc{Medea Mittel, Willi Weg}
+%\ps{Nicht persönlich nehmen!}
+\end{letter}
+\end{document}

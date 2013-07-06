@@ -1,0 +1,65 @@
+%%
+% (German) letter template by Jan-Philip Gehrcke
+% http://gehrcke.de -- jgehrcke@gmail.com -- November 2009
+% Source: http://gehrcke.de/2009/12/latex-briefvorlage/
+%%
+
+\ProvidesFile{letter_options.lco}[letter-class-option file]
+%% strikt DIN 5008:
+%\RequirePackage[left=24.1mm,%
+                %right=24.1mm,%
+                %bottom=4.5cm%
+                %]{geometry}
+
+% symbols: (cell)phone, email
+\RequirePackage{marvosym} 
+% for gray color in header
+\RequirePackage{color}
+
+% for explanation and more options see scrguide @
+% http://www.tex.ac.uk/tex-archive/macros/latex/contrib/koma-script/scrguide.pdf
+% comment out, what you don't want (e.g. `fromphone`).
+\KOMAoptions{
+foldmarks=true,
+foldmarks=BlmTP,
+%fromurl=true,
+fromemail=true,
+fromphone=true,
+fromalign=right,
+fromrule=aftername,
+%fromemail=true,
+footsepline=off
+}
+
+% The header (sender) can be styled with `fromrule` (above)
+% and with custom colors (e.g. see below) and with special font styles
+% set by `\setkomafont` (e.g. see below, too)
+
+% define gray for header
+%\definecolor{mygray}{gray}{.55}
+% define blue for address
+%\definecolor{myblue}{rgb}{0.25,0.45,0.75}
+
+\setkomavar{fromname}{Foo Bar}
+\setkomafont{fromname}{\bfseries\LARGE}
+%\setkomafont{fromrule}{\color{mygray}}
+%\setkomafont{fromname}{\bfseries\color{mygray}\LARGE}
+%\setkomafont{fromrule}{\color{mygray}}
+%\setkomafont{addressee}{\small}
+
+\setkomavar{fromaddress}{Straße 1\\12345 Stadt}
+\setkomavar{fromphone}[Telefon: ]{+49\,123\,1234567}
+\setkomavar{fromemail}{foo@bar.baz}
+%\setkomavar{fromurl}[]{http://url.de}
+%\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape\color{myblue}}
+
+\setkomavar{backaddress}{Foo Bar, Straße 1, 12345 Stadt}
+
+\setkomavar{signature}{Foo Bar}
+% signature same indention level as rest
+\renewcommand*{\raggedsignature}{\raggedright}
+% space for signature
+%\@setplength{sigbeforevskip}{1.7cm}
+%\@setplength{sigbeforevskip}{11pt}
+\@setplength{firstheadvpos}{17mm} % Abstand des Absenderfeldes vom Top
+\endinput
