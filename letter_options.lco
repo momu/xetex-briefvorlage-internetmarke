@@ -52,8 +52,8 @@ footsepline=off
 \setkomavar{fromemail}{foo@bar.baz}
 %\setkomavar{fromurl}[]{http://url.de}
 %\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape\color{myblue}}
-
-\setkomavar{backaddress}{Foo Bar, Straße 1, 12345 Stadt}
+\setkomavar{backaddressseparator}{\textperiodcentered}
+%\setkomavar{backaddress}{Foo Bar, Straße 1, 12345 Stadt}
 
 \setkomavar{signature}{Foo Bar}
 % signature same indention level as rest
